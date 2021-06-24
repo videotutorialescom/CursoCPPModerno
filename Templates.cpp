@@ -1,5 +1,40 @@
 #include <cstdio>
 
+struct Trazar {
+	Trazar(const char* nombre): nombre{ nombre } {
+		printf("%s construida.\n", nombre);
+	}
+	~Trazar() {
+		printf("%s destruida.\n", nombre);
+	}
+
+private:
+	const char* const nombre;
+};
+
+static Trazar t1{ "Variable estatica" };
+thread_local Trazar t2{ "Variable hilo-local" };
+
+int main() {
+	printf("A\n");
+	Trazar t3{ "Variable Automatica" };
+	printf("B\n");
+	const auto* t4 = new Trazar{ "Variable Dinamica" };
+	printf("C\n");
+}
+
+
+
+
+
+
+
+
+
+
+
+/*#include <cstdio>
+
 struct PoderNuclear {
 	static int poder_nuclear;
 	static void aumentar_poder_nuclear(int isotopos_nucleares) {
@@ -16,12 +51,12 @@ struct PoderNuclear {
 int PoderNuclear::poder_nuclear = 200;
 
 int main() {
-	
+	printf("Poder Nuclear: %d\n", PoderNuclear::poder_nuclear);
 	PoderNuclear::aumentar_poder_nuclear(100);
 	PoderNuclear::aumentar_poder_nuclear(500);
 
 	return 0;
-}
+}*/
 
 
 /*#include <cstdio>
@@ -56,7 +91,7 @@ int main() {
 
 
 void aumentar_poder_nuclear(int isotopos_nucleares) {
-	static int poder_nuclear = 200;
+	thread_local int poder_nuclear = 200;
 	poder_nuclear = poder_nuclear + isotopos_nucleares;
 	const auto calor_perdido = poder_nuclear * 20;
 	printf("Poder Nuclear: %d\n", poder_nuclear);
@@ -471,7 +506,7 @@ int main() {
 
 		/*#include <cstdio>
 
-		using namespace std;
+		using nombrespace std;
 
 		int main() {
 			// declare simple variables
