@@ -1,0 +1,7 @@
+﻿  Template.cpp
+G:\VSProyecto\Template\Template.cpp(41,41): warning C4305: 'argumento': truncamiento de 'double' a 'T'
+          with
+          [
+              T=float
+          ]
+  Template.vcxproj -> G:\VSProyecto\Template\Debug\Template.exe
